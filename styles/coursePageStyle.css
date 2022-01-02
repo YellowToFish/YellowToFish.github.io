@@ -7,9 +7,11 @@
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 400;
 }
+
 a {
     text-decoration: none;
 }
+
 /* top-bar */
 .top-bar {
     width: 100%;
@@ -32,4 +34,97 @@ a {
     padding: 12px;
     color: black;
     font-size: 18px;
+}
+
+/* course-title */
+.course-title {
+    padding: 24px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/* course-years*/
+.course-years{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.course-years > div{
+    width: 100%;
+}
+.course-years > div > table{
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 18px;
+    width: 92%;
+    max-width: 800px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    table-layout: fixed;
+}
+.course-years > div > table thead tr{
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+}
+.course-years > div > table thead tr:first-child{
+    background-color: #233862;
+    color: white;
+    border-bottom: none;
+}
+table th,
+table td{
+    padding: 12px 15px;
+}
+table tbody tr{
+    border-bottom: 1px solid #dddddd;
+    vertical-align: top;
+}
+table tbody tr td,
+table tbody tr td a{
+    color: #233862;
+    text-align: center;
+}
+table tbody tr td a{
+    padding: 4px;
+}
+
+
+/* bottom-bar */
+.bottom-bar {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #233862;
+}
+
+.bottom-bar>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 12px;
+}
+
+.bottom-bar>div>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-bar>div>div * {
+    margin: 4px;
+}
+
+.bottom-bar>div>div span {
+    content: "";
+    width: 120px;
+    height: 1px;
+    background-color: white;
+}
+
+.bottom-bar * {
+    font-weight: 100;
+    color: white;
 }
