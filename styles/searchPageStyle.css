@@ -1,0 +1,201 @@
+/* global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Noto Serif TC', serif; */
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* top-bar */
+.top-bar {
+    width: 100%;
+    height: fit-content;
+    background: white;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-bar>* {
+    margin: 16px 24px;
+}
+
+.top-bar-item {
+    padding: 12px;
+    color: black;
+    font-size: 18px;
+}
+
+/* search-bar */
+.search-bar {
+    padding: 24px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.search-bar div {
+    width: 240px;
+    height: 40px;
+    padding: 6px;
+    border: 1px solid #233862;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar div input {
+    width: 221px;
+    height: 28px;
+    font-size: 16px;
+    font-weight: 100;
+    outline: none;
+    border: none;
+    margin: 0 2px;
+}
+
+.search-bar button {
+    width: 40px;
+    height: 40px;
+    background-color: #233862;
+    border: 1px solid #233862;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+}
+
+.search-bar button svg {
+    width: 24px;
+    height: 24px;
+    margin: 6px;
+    fill: white;
+}
+
+/* group-bar */
+.group-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.group-bar div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-bar div a {
+    padding: 12px 24px;
+    color: black;
+    cursor: pointer;
+}
+
+.group-bar div span {
+    transition: 0.5s ease-in-out;
+}
+
+.group-bar div .active+span {
+    height: 1px;
+    width: 24px;
+    background-color: black;
+}
+
+/* course-bar */
+.course-bar {
+    min-height: 70vh;
+    margin: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.course-bar section {
+    width: 480px;
+    margin: 12px;
+    padding: 0 24px;
+    border: 1px solid #eee;
+    box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.course-bar section div {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.course-bar section div * {
+    font-weight: 300;
+}
+
+.course-bar section div h2 {
+    font-weight: 400;
+    width: fit-content;
+}
+
+.course-bar section div h2::first-line {
+    background-image: linear-gradient(to top, #69F0AE 50%, rgba(0, 0, 0, 0) 50.1%);
+}
+
+.course-bar section div:nth-child(2) {
+    align-items: flex-end;
+}
+
+.course-bar section div a {
+    padding: 4px 24px;
+    color: white;
+    background-color: #233862;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+/* bottom-bar */
+.bottom-bar {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #233862;
+}
+
+.bottom-bar>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 12px;
+}
+
+.bottom-bar>div>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-bar>div>div * {
+    margin: 4px;
+}
+
+.bottom-bar>div>div span {
+    content: "";
+    width: 120px;
+    height: 1px;
+    background-color: white;
+}
+
+.bottom-bar * {
+    font-weight: 100;
+    color: white;
+}

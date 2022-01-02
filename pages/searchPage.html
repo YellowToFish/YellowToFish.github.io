@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://unpkg.com/vue@3.2.7/dist/vue.global.prod.js"></script>
+    
+    <link rel="stylesheet" href="../styles/searchPageStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>數位系考古題題庫</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="top-bar">
+            <!-- <div>
+                <a href="index.html" class="top-bar-item">logo</a>
+            </div> -->
+            <span>
+                <a v-for="item in topBarData" :href="item.url" class="top-bar-item">{{ item.title }}</a>
+            </span>
+        </header>
+        <div class="search-bar">
+            <div>
+                <input type="text" v-model="keyword" placeholder="輸入關鍵字">
+            </div>
+            <button>
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false">
+                    <g>
+                        <path
+                            d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z">
+                        </path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="group-bar">
+            <div>
+                <a :class="{ active: toOnePage }" class="place" @click="keyword = '', toPage">全部</a>
+                <span></span>
+            </div>
+            <div>
+                <a :class="{ active: toTwoPage }" class="place" @click="keyword = '主修', toPage">主修</a>
+                <span></span>
+            </div>
+            <div>
+                <a :class="{ active: toThreePage }" class="place" @click="keyword = '系統組', toPage">系統組</a>
+                <span></span>
+            </div>
+            <div>
+                <a :class="{ active: toFourPage }" class="place" @click="keyword = '內容組', toPage">內容組</a>
+                <span></span>
+            </div>
+        </div>
+        <div class="course-bar">
+            <section v-for="item in condition">
+                <div>
+                    <h2>{{ item.courseNameZh }}</h2>
+                    <p>{{ item.courseNameEn }}</p>
+                    <p>{{ item.courseTerm }} / {{ item.courseClass }} / {{ item.courseMajor }}</p>
+                </div>
+                <div>
+                    <a :href = item.courseUrl>進入課程</a>
+                </div>
+            </section>
+        </div>
+        <footer class="bottom-bar">
+            <div>
+                <div>
+                    <h3>相關單位</h3>
+                    <span></span>
+                    <a href="https://www.nutn.edu.tw/" target="_blank">南大首頁</a>
+                    <a href="http://ilt.nutn.edu.tw/" target="_blank">數位系首頁</a>
+                </div>
+                <div>
+                    <h3>實用連結</h3>
+                    <span></span>
+                    <a href="https://ecourse.nutn.edu.tw/" target="_blank">E-Course課程網站</a>
+                    <a href="https://academics.nutn.edu.tw/SelSys/" target="_blank">南大選課系統</a>
+                    <a href="https://academics.nutn.edu.tw/iSTU/" target="_blank">南大學生系統</a>
+                </div>
+                <div>
+                    <h3>聯繫</h3>
+                    <span></span>
+                    <a>Discord：YellowToFish#5671</a>
+                    <a>Gmail：s10855033@gm2.nutn.edu.tw</a>
+                </div>
+            </div>
+            <div>Copyright © 2021 YellowToFish</div>
+        </footer>
+    </div>
+
+    <script type="module">
+        Vue.createApp({
+            data() {
+                let obj = [
+    {
+        "courseNum": 1004,
+        "courseNameZh": "計算機概論",
+        "courseNameEn": "Introduction to Cumputer Science",
+        "courseTerm": "大一上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1004"
+    },
+    {
+        "courseNum": 1001,
+        "courseNameZh": "微積分(一)",
+        "courseNameEn": "Calculas I",
+        "courseTerm": "大一上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1001"
+    },
+    {
+        "courseNum": 1008,
+        "courseNameZh": "微積分(二)",
+        "courseNameEn": "Calculas II",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1008"
+    },
+    {
+        "courseNum": 1002,
+        "courseNameZh": "程式設計",
+        "courseNameEn": "Computer Programming",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1002"
+    },
+    {
+        "courseNum": 1072,
+        "courseNameZh": "程式設計實作",
+        "courseNameEn": "Computer Programming Practice",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1072"
+    },
+    {
+        "courseNum": 1015,
+        "courseNameZh": "離散數學",
+        "courseNameEn": "Discrete Mathematics",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1015"
+    },
+    {
+        "courseNum": 1013,
+        "courseNameZh": "資料結構",
+        "courseNameEn": "Data Structures",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1013"
+    },
+    {
+        "courseNum": 1007,
+        "courseNameZh": "線性代數",
+        "courseNameEn": "Linear Algebra",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1007"
+    },
+    {
+        "courseNum": 1088,
+        "courseNameZh": "認知科學",
+        "courseNameEn": "Cognitive Sciences",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1088"
+    },
+    {
+        "courseNum": 1023,
+        "courseNameZh": "機率與統計",
+        "courseNameEn": "Probability and Statistics",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1023"
+    },
+    {
+        "courseNum": 1016,
+        "courseNameZh": "系統分析與設計",
+        "courseNameEn": "Systems Analysis and Design",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1016"
+    },
+    {
+        "courseNum": 1040,
+        "courseNameZh": "學習理論",
+        "courseNameEn": "Learning Theories",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1040"
+    },
+    {
+        "courseNum": 1034,
+        "courseNameZh": "演算法",
+        "courseNameEn": "Algorithms",
+        "courseTerm": "大三上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1034"
+    },
+    {
+        "courseNum": 1041,
+        "courseNameZh": "資料庫系統",
+        "courseNameEn": "Database Systems",
+        "courseTerm": "大三上",
+        "courseClass": "系統組",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1041"
+    },
+    {
+        "courseNum": 1047,
+        "courseNameZh": "管理資訊系統",
+        "courseNameEn": "Management Information System",
+        "courseTerm": "大三上",
+        "courseClass": "系統組",
+        "courseMajor": "選修",
+        "courseUrl": "./coursePage.html?courseNum=1047"
+    },
+    {
+        "courseNum": 1030,
+        "courseNameZh": "電腦圖學",
+        "courseNameEn": "Computer Graphics",
+        "courseTerm": "大二下",
+        "courseClass": "內容組",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1030"
+    },
+    {
+        "courseNum": 1027,
+        "courseNameZh": "資訊倫理與法律",
+        "courseNameEn": "Information Morality and Laws",
+        "courseTerm": "大二上",
+        "courseClass": "內容組",
+        "courseMajor": "選修",
+        "courseUrl": "./coursePage.html?courseNum=1027"
+    }
+]
+                let url = location.href;
+                let get = "";
+                if (url.includes('?')){
+                    get = (url.split("?")[1]).split("=")[1];
+                }
+                let key = "";
+                switch(get){
+                    case '1':
+                        key = "主修";
+                        break;
+                    case '2':
+                        key = "系統組";
+                        break;
+                    case '3':
+                        key = "內容組";
+                        break;
+                    default:
+                        key = "";
+                }
+                return {
+                    topBarData: [{
+                            title: "首頁",
+                            url: "../index.html"
+                        },
+                        {
+                            title: "消息",
+                            url: ""
+                        },
+                        {
+                            title: "收藏",
+                            url: ""
+                        },
+                        {
+                            title: "登入",
+                            url: ""
+                        }
+                    ],
+                    courseData: obj,
+                    keyword: key,
+                    oneIsActive: true,
+                    twoIsActive: false,
+                    threeIsActive: false,
+                    fourIsActive: false,
+                }
+            },
+            computed: {
+                condition() {
+                    let keyword = this.keyword;
+                    let key = [];
+                    for (let i in this.courseData[0]) {
+                        key.push(i);
+                    };
+                    return this.courseData.filter(function (item) {
+                        return item[key[1]].includes(keyword) ||
+                            item[key[2]].includes(keyword) ||
+                            item[key[3]].includes(keyword) ||
+                            item[key[4]].includes(keyword) ||
+                            item[key[5]].includes(keyword);
+                    })
+                },
+                toOnePage(){
+                    let keyword = this.keyword;
+                    this.oneIsActive = false;
+                    this.twoIsActive = false;
+                    this.threeIsActive = false;
+                    this.fourIsActive = false;
+                    if ((keyword != "主修")&&(keyword != "系統組")&&(keyword != "內容組")) {
+                        return true;
+                    }
+                },
+                toTwoPage(){
+                    let keyword = this.keyword;
+                    this.oneIsActive = false;
+                    this.twoIsActive = false;
+                    this.threeIsActive = false;
+                    this.fourIsActive = false;
+                    if (keyword == "主修") {
+                        return true;
+                    }
+                },
+                toThreePage(){
+                    let keyword = this.keyword;
+                    this.oneIsActive = false;
+                    this.twoIsActive = false;
+                    this.threeIsActive = false;
+                    this.fourIsActive = false;
+                    if (keyword == "系統組") {
+                        return true;
+                    }
+                },
+                toFourPage(){
+                    let keyword = this.keyword;
+                    this.oneIsActive = false;
+                    this.twoIsActive = false;
+                    this.threeIsActive = false;
+                    this.fourIsActive = false;
+                    if (keyword == "內容組") {
+                        return true;
+                    }
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

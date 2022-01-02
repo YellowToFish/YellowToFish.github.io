@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/vue@3.2.7/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>數位系考古題題庫</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="top-bar">
+            <!-- <div>
+                <a href="index.html" class="top-bar-item">logo</a>
+            </div> -->
+            <span>
+                <a v-for="item in topBarData" :href="item.url" class="top-bar-item">{{ item.title }}</a>
+            </span>
+        </header>
+        <div class="home-news">
+            <div class="trigger">
+                <input type="radio" name="r1" id="r1-1" checked>
+                <label for="r1-1"><span onclick="toPageOne()"></span></label>
+                <input type="radio" name="r1" id="r1-2">
+                <label for="r1-2"><span onclick="toPageTwo()"></span></label>
+                <input type="radio" name="r1" id="r1-3">
+                <label for="r1-3"><span onclick="toPageTrd()"></span></label>
+            </div>
+            <div class="news-pages">
+                <div class="news-page-1">
+                    <h1>數位系 / 考古題 / 題庫</h1>
+                    <h3>全科目近三年以上考古題彙總</h3>
+                </div>
+                <div class="news-page-2">
+                    <h1>數位系考古題題庫</h1>
+                    <h3>我全都要！！！</h3>
+                </div>
+                <div class="news-page-3">
+
+                </div>
+            </div>
+        </div>
+        <div class="home-group">
+            <div v-for="item in homeGroupData" class="group-items">
+                <img :src="item.ui" alt="">
+                <div>
+                    <h2>{{ item.title }}</h2>
+                    <span></span>
+                    <p>{{ item.introduce }}</p>
+                    <a :href="item.url">前往</a>
+                </div>
+            </div>
+        </div>
+        <footer class="bottom-bar">
+            <div>
+                <div>
+                    <h3>相關單位</h3>
+                    <span></span>
+                    <a href="https://www.nutn.edu.tw/" target="_blank">南大首頁</a>
+                    <a href="http://ilt.nutn.edu.tw/" target="_blank">數位系首頁</a>
+                </div>
+                <div>
+                    <h3>實用連結</h3>
+                    <span></span>
+                    <a href="https://ecourse.nutn.edu.tw/" target="_blank">E-Course課程網站</a>
+                    <a href="https://academics.nutn.edu.tw/SelSys/" target="_blank">南大選課系統</a>
+                    <a href="https://academics.nutn.edu.tw/iSTU/" target="_blank">南大學生系統</a>
+                </div>
+                <div>
+                    <h3>聯繫</h3>
+                    <span></span>
+                    <a>Discord：YellowToFish#5671</a>
+                    <a>Gmail：s10855033@gm2.nutn.edu.tw</a>
+                </div>
+            </div>
+            <div>Copyright © 2021 YellowToFish</div>
+        </footer>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    topBarData: [{
+                            title: "首頁",
+                            url: "index.html"
+                        },
+                        {
+                            title: "消息",
+                            url: "index.html"
+                        },
+                        {
+                            title: "收藏",
+                            url: "index.html"
+                        },
+                        {
+                            title: "登入",
+                            url: "index.html"
+                        }
+                    ],
+                    homeNewsData: [{
+                            title: "數位系考古題題庫",
+                            introduce: ""
+                        },
+                        {
+                            title: "",
+                            introduce: ""
+                        }
+                    ],
+                    homeGroupData: [{
+                            title: "主修",
+                            introduce: "主修皆為必修課程，不論副修學程為「數位學習系統」或「數位學習內容」皆須修習",
+                            url: "pages/searchPage.html?test=1",
+                            ui: "images/01.jpg"
+                        },
+                        {
+                            title: "系統組",
+                            introduce: "「數位學習系統」組為數位系的副修學程之一，主要培養學生之程式撰寫能力以及認識前後端系統功能",
+                            url: "pages/searchPage.html?test=2",
+                            ui: "images/06.jpg"
+                        },
+                        {
+                            title: "內容組",
+                            introduce: "「數位學習內容」組為數位系的副修學程之一，主要培養學生的設計能力以及對影像和動畫設計的技能",
+                            url: "pages/searchPage.html?test=3",
+                            ui: "images/07.jpeg"
+                        }
+                    ]
+                }
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
+
+<!-- https://lakefish.neocities.org/ -->

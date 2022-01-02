@@ -1,0 +1,35 @@
+/* global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Noto Serif TC', serif; */
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+}
+a {
+    text-decoration: none;
+}
+/* top-bar */
+.top-bar {
+    width: 100%;
+    height: fit-content;
+    background: white;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-bar>* {
+    margin: 16px 24px;
+}
+
+.top-bar-item {
+    padding: 12px;
+    color: black;
+    font-size: 18px;
+}
