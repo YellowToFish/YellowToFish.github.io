@@ -156,18 +156,18 @@ obj = [
         "courseUrl": "./coursePage.html?courseNum=1027"
     }
 ]
-for i in obj:
-    print(i['courseNum'])
+# for i in obj:
+#     print(i['courseNum'])
 pathListCourse = os.listdir('./library')
 pathListFiles = []
 for course in pathListCourse:
     for i in obj:
-        if course == i['courseNameZh']:
+        if course == str(i['courseNum']):
             temp = {
-                'courseNum': i['courseNum'],
-                'courseNameZh': course,
-                'courseMiddleExam': os.listdir('./library/' + course + '/期中考'),
-                'courseFinalExam': os.listdir('./library/' + course + '/期末考')
+                'courseNum': course,
+                'courseNameZh': i['courseNameZh'],
+                'courseMiddleExam': os.listdir('./library/' + course + '/m'),
+                'courseFinalExam': os.listdir('./library/' + course + '/f')
             }
             pathListFiles.append(temp)
 with open('output.json', 'w', encoding="utf-8") as f:
