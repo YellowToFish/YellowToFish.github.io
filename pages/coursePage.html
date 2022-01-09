@@ -267,6 +267,12 @@
             a1.setAttribute('class', 'top-bar-item');
             a1.setAttribute('href', '../index.html');
             a1.innerHTML = '首頁';
+
+            var a5 = document.createElement('a');
+            a5.setAttribute('class', 'top-bar-item');
+            a5.setAttribute('href', './searchPage.html?test=0');
+            a5.innerHTML = '課程';
+
             var a2 = document.createElement('a');
             a2.setAttribute('class', 'top-bar-item');
             a2.setAttribute('href', 'https://script.google.com/a/macros/gm2.nutn.edu.tw/s/AKfycbxc8ovKaHw0vnhaHUU-LLUqwEarEzqYUi7AEfmFDUOjgkmyHe52pGDU2UttYNfrCP2F/exec');
@@ -282,6 +288,7 @@
                 a4.innerHTML = '登出';
                 a4.addEventListener('click', signout);
                 span.appendChild(a1);
+                span.appendChild(a5);
                 span.appendChild(a2);
                 // span.appendChild(a3);
                 span.appendChild(a4);
@@ -292,6 +299,7 @@
                 a3.setAttribute('href', './loginPage.html');
                 a3.innerHTML = '登入';
                 span.appendChild(a1);
+                span.appendChild(a5);
                 span.appendChild(a2);
                 span.appendChild(a3);
             }
