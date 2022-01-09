@@ -262,41 +262,38 @@
         const auth = getAuth();
         onAuthStateChanged(auth, (user)=>{
             let topBar = document.getElementById('top-bar');
+            var span = document.createElement('span');
+            var a1 = document.createElement('a');
+            a1.setAttribute('class', 'top-bar-item');
+            a1.setAttribute('href', '../index.html');
+            a1.innerHTML = '首頁';
+            var a2 = document.createElement('a');
+            a2.setAttribute('class', 'top-bar-item');
+            a2.setAttribute('href', 'https://script.google.com/a/macros/gm2.nutn.edu.tw/s/AKfycbxc8ovKaHw0vnhaHUU-LLUqwEarEzqYUi7AEfmFDUOjgkmyHe52pGDU2UttYNfrCP2F/exec');
+            a2.setAttribute('target', '_blank');
+            a2.innerHTML = '上傳';
             if (user){
-                console.log('yes');
-                var span = document.createElement('span');
-                var a1 = document.createElement('a');
-                a1.setAttribute('class', 'top-bar-item');
-                a1.setAttribute('href', '../index.html');
-                a1.innerHTML = '首頁';
-                var a2 = document.createElement('a');
-                a2.setAttribute('class', 'top-bar-item');
-                // a2.setAttribute('href', './uploadPage.html');
-                a2.setAttribute('href', 'https://driveuploader.com/upload/2UWlQq1Hli/');
-                a2.setAttribute('target', '_blank');
-                a2.innerHTML = '上傳';
+                // var a3 = document.createElement('a');
+                // a3.setAttribute('class', 'top-bar-item');
+                // a3.setAttribute('href', './collectPage.html')
+                // a3.innerHTML = '收藏';
+                var a4 = document.createElement('a');
+                a4.setAttribute('class', 'top-bar-item');
+                a4.innerHTML = '登出';
+                a4.addEventListener('click', signout);
+                span.appendChild(a1);
+                span.appendChild(a2);
+                // span.appendChild(a3);
+                span.appendChild(a4);
+            }
+            else{
                 var a3 = document.createElement('a');
                 a3.setAttribute('class', 'top-bar-item');
-                a3.setAttribute('id', 'logout');
-                a3.innerHTML = '登出';
-                a3.addEventListener('click', signout);
+                a3.setAttribute('href', './loginPage.html');
+                a3.innerHTML = '登入';
                 span.appendChild(a1);
                 span.appendChild(a2);
                 span.appendChild(a3);
-            }
-            else{
-                console.log('no');
-                var span = document.createElement('span');
-                var a1 = document.createElement('a');
-                a1.setAttribute('class', 'top-bar-item');
-                a1.setAttribute('href', '../index.html');
-                a1.innerHTML = '首頁';
-                var a2 = document.createElement('a');
-                a2.setAttribute('class', 'top-bar-item');
-                a2.setAttribute('href', './loginPage.html');
-                a2.innerHTML = '登入';
-                span.appendChild(a1);
-                span.appendChild(a2);
             }
             topBar.appendChild(span);
         })
