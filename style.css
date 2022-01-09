@@ -33,12 +33,13 @@ a {
     padding: 12px;
     color: white;
     font-size: 18px;
+    cursor: pointer;
 }
 
 /* home-news */
 .home-news {
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
     background-size: cover;
     position: relative;
     overflow: hidden;

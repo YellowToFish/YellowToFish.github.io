@@ -20,13 +20,7 @@
 
 <body>
     <div id="app">
-        <header class="top-bar">
-            <!-- <div>
-                <a href="index.html" class="top-bar-item">logo</a>
-            </div> -->
-            <span>
-                <a v-for="item in topBarData" :href="item.url" class="top-bar-item">{{ item.title }}</a>
-            </span>
+        <header class="top-bar" id="top-bar">
         </header>
         <div class="search-bar">
             <div>
@@ -276,23 +270,6 @@
                         key = "";
                 }
                 return {
-                    topBarData: [{
-                            title: "首頁",
-                            url: "../index.html"
-                        },
-                        {
-                            title: "上傳",
-                            url: ""
-                        },
-                        {
-                            title: "收藏",
-                            url: ""
-                        },
-                        {
-                            title: "登入",
-                            url: ""
-                        }
-                    ],
                     courseData: obj,
                     keyword: key,
                     oneIsActive: true,
@@ -358,6 +335,71 @@
                 }
             }
         }).mount("#app");
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, signOut }
+            from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDire1Trk6iWcIM8hADzsDyQuSeM4Wyphs",
+            authDomain: "ilt-history-exam.firebaseapp.com",
+            databaseURL: "https://ilt-history-exam-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "ilt-history-exam",
+            storageBucket: "ilt-history-exam.appspot.com",
+            messagingSenderId: "864725739716",
+            appId: "1:864725739716:web:43bd544e81d6e30ac60191"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user)=>{
+            let topBar = document.getElementById('top-bar');
+            if (user){
+                console.log('yes');
+                var span = document.createElement('span');
+                var a1 = document.createElement('a');
+                a1.setAttribute('class', 'top-bar-item');
+                a1.setAttribute('href', '../index.html');
+                a1.innerHTML = '首頁';
+                var a2 = document.createElement('a');
+                a2.setAttribute('class', 'top-bar-item');
+                // a2.setAttribute('href', './uploadPage.html');
+                a2.setAttribute('href', 'https://driveuploader.com/upload/2UWlQq1Hli/');
+                a2.setAttribute('target', '_blank');
+                a2.innerHTML = '上傳';
+                var a3 = document.createElement('a');
+                a3.setAttribute('class', 'top-bar-item');
+                a3.setAttribute('id', 'logout');
+                a3.innerHTML = '登出';
+                a3.addEventListener('click', signout);
+                span.appendChild(a1);
+                span.appendChild(a2);
+                span.appendChild(a3);
+            }
+            else{
+                console.log('no');
+                var span = document.createElement('span');
+                var a1 = document.createElement('a');
+                a1.setAttribute('class', 'top-bar-item');
+                a1.setAttribute('href', '../index.html');
+                a1.innerHTML = '首頁';
+                var a2 = document.createElement('a');
+                a2.setAttribute('class', 'top-bar-item');
+                a2.setAttribute('href', './loginPage.html');
+                a2.innerHTML = '登入';
+                span.appendChild(a1);
+                span.appendChild(a2);
+            }
+            topBar.appendChild(span);
+        })
+        function signout(){
+            signOut(auth)
+            .then(()=>{
+                window.location.href = '../index.html';
+            })
+            .catch((error)=>{
+                console.log(error.message);
+            })
+        }
     </script>
 </body>
 
