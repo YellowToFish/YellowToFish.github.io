@@ -61,6 +61,7 @@ header span a{
     flex-basis: 40vw;
 }
 .title-text p{
+    font-size: 18px;
     padding: 4px;
 }
 /* login window */
@@ -198,13 +199,17 @@ footer{
 }
 
 .demo{
-    height: 45px;
+    width: 256px;
     border-radius: 5px;
     border: none;
     background-color: rgb(116, 198, 98);
     outline: none;
     cursor: pointer;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+}
+.demo a{
     color: white;
-    padding: 10px 100px;
     font-size: 18px;
 }

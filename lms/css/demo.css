@@ -44,8 +44,6 @@ header span a{
     max-width: 100%;
     display: flex;
 }
-
-
 /* login window */
 .middle-right{
     position: fixed;
