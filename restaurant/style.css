@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+}
+header{
+    background-color: #218c74;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.logo{
+    margin: 24px;
+    list-style: none;
+}
+.top-bar{
+    padding: 24px;
+    list-style: none;
+}
+.top-bar li{
+    padding: 0 12px;
+    display: inline-block;
+}
+.top-bar a, .logo{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+table{
+    width: 100%;
+    padding: 0 12%;
+}
+h1{
+    font-size: 24px;
+    margin: 12px;
+    width: fit-content;
+}
+h3{
+    font-size: 20px;
+}
+.left-bar, .right-bar{
+    padding: 24px;
+}
+.item{
+    border: 1px solid #eee;
+    width: 140px;
+    margin: 12px;
+    padding: 12px;
+    display: inline-block;
+    border-radius: 2px;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
+}
+
+.item h3{
+    margin: 4px;
+    display: inline-block;
+}
+.item-cost{
+    color: #f44336;
+}
+.item-count{
+    text-align: center;
+}
+.item-count button,
+.item-count input{
+    font-size: 16px;
+    width: 32px;
+    height: 36px;
+    margin: 4px;
+}
+.item-count input {
+    box-sizing: border-box;
+    padding: auto;
+    text-align: center;
+    outline: none;
+    border: 1px solid #D5D8DE;
+    border-radius: 3px;
+}
+.item-count button {
+    border-radius: 18px;
+    border: 1px solid #D5D8DE;
+    cursor: pointer;
+    background-color: white;
+}
+.right-bar{
+    width: 240px;
+    height: fit-content;
+}
+td{
+    vertical-align: top;
+}
+#total{
+    margin: 12px;
+}
+@keyframes aaa{
+    from{
+        transform: translateY(50px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.total-detail01{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #eee;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
+    border-radius: 2px;
+}
+.total-detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #eee;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    /* animation-name: aaa;
+    animation-duration: .5s; */
+}
+.red{
+    background-color: #218c74;
+    color: white;
+}
+.red .item-cost{
+    color: white;
+}
+.check, .cancel{
+    font-size: 20px;
+    margin: 12px;
+    padding: 12px;
+    background-color: #218c74;
+    color: white;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.cancel{
+    background-color: #f44336;
+}
