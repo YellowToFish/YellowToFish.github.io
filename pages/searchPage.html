@@ -95,97 +95,161 @@
     <script type="module">
         Vue.createApp({
             data() {
-                let obj = [{
-    "courseNum": "1001",
-    "courseNameZh": "微積分(一)",
-    "courseMiddleExam": ["106.pdf", "107.pdf", "108.pdf"],
-    "courseFinalExam": ["107.pdf", "108.pdf"]
-}, {
-    "courseNum": "1002",
-    "courseNameZh": "程式設計",
-    "courseMiddleExam": [],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1004",
-    "courseNameZh": "計算機概論",
-    "courseMiddleExam": ["107_1.jpg", "107_2.jpg"],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1007",
-    "courseNameZh": "線性代數",
-    "courseMiddleExam": ["108_01.jpg", "108_02.jpg", "108_03.jpg", "108_04.jpg", "108_05.jpg", "108_06.jpg", "108_07.jpg", "108_08.jpg", "108_09.jpg", "108_10.jpg"],
-    "courseFinalExam": ["106.pdf"]
-}, {
-    "courseNum": "1008",
-    "courseNameZh": "微積分(二)",
-    "courseMiddleExam": ["107.pdf", "108.pdf"],
-    "courseFinalExam": ["107.pdf", "108.pdf"]
-}, {
-    "courseNum": "1013",
-    "courseNameZh": "資料結構",
-    "courseMiddleExam": ["106_01.jpg", "106_02.jpg", "107_01.jpg", "107_02.jpg", "108_01.jpg", "108_02.jpg"],
-    "courseFinalExam": ["105.pdf", "106.pdf", "107.pdf", "108_01.pdf", "108_02.pdf"]
-}, {
-    "courseNum": "1015",
-    "courseNameZh": "離散數學",
-    "courseMiddleExam": ["107_01.jpg", "107_02.jpg", "107_03.jpg", "107_04.jpg", "107_05.jpg", "107_06.jpg", "107_07.jpg", "107_08.jpg", "107_09.jpg", "107_10.jpg", "107_11.jpg", "107_12.jpg"],
-    "courseFinalExam": ["106_1.jpg", "106_2.jpg", "106_3.jpg", "107_1.jpg", "107_2.jpg", "107_3.jpg", "107_4.jpg", "107_5.jpg"]
-}, {
-    "courseNum": "1016",
-    "courseNameZh": "系統分析與設計",
-    "courseMiddleExam": ["105.pdf"],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1023",
-    "courseNameZh": "機率與統計",
-    "courseMiddleExam": ["107_01.jpg", "107_02.jpg", "108_01.jpg", "108_02.jpg", "109.pdf"],
-    "courseFinalExam": ["107_01.jpg", "107_02.jpg", "107_03.jpg", "108_01.jpg", "108_02.jpg", "108_03.jpg"]
-}, {
-    "courseNum": "1026",
-    "courseNameZh": "網路系統實務與管理",
-    "courseMiddleExam": ["110.pdf"],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1027",
-    "courseNameZh": "資訊倫理與法律",
-    "courseMiddleExam": [],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1030",
-    "courseNameZh": "電腦圖學",
-    "courseMiddleExam": [],
-    "courseFinalExam": ["105.pdf"]
-}, {
-    "courseNum": "1034",
-    "courseNameZh": "演算法",
-    "courseMiddleExam": ["107_01.JPG", "107_02.JPG", "107_03.JPG", "107_04.JPG", "107_05.JPG", "107_06.JPG", "107_07.JPG", "107_08.JPG", "107_09.JPG", "107_10.JPG", "107_11.JPG", "109_01.jpg", "109_02.jpg", "109_03.jpg", "109_04.jpg"],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1040",
-    "courseNameZh": "學習理論",
-    "courseMiddleExam": ["105_01.pdf", "105_02.pdf"],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1041",
-    "courseNameZh": "資料庫系統",
-    "courseMiddleExam": ["107_01.jpg", "107_02.jpg", "108_01.JPG", "108_02.JPG", "109_01.jpg", "109_02.jpg", "Note.pdf"],
-    "courseFinalExam": ["109_01.jpg", "109_02.jpg", "Note.pdf"]
-}, {
-    "courseNum": "1047",
-    "courseNameZh": "管理資訊系統",
-    "courseMiddleExam": [],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1072",
-    "courseNameZh": "程式設計實作",
-    "courseMiddleExam": [],
-    "courseFinalExam": []
-}, {
-    "courseNum": "1088",
-    "courseNameZh": "認知科學",
-    "courseMiddleExam": ["104_1.pdf", "104_2.pdf", "105_1.pdf", "105_2.pdf"],
-    "courseFinalExam": []
-}]
+                let obj = [
+    {
+        "courseNum": 1004,
+        "courseNameZh": "計算機概論",
+        "courseNameEn": "Introduction to Cumputer Science",
+        "courseTerm": "大一上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1004"
+    },
+    {
+        "courseNum": 1001,
+        "courseNameZh": "微積分(一)",
+        "courseNameEn": "Calculas I",
+        "courseTerm": "大一上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1001"
+    },
+    {
+        "courseNum": 1008,
+        "courseNameZh": "微積分(二)",
+        "courseNameEn": "Calculas II",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1008"
+    },
+    {
+        "courseNum": 1002,
+        "courseNameZh": "程式設計",
+        "courseNameEn": "Computer Programming",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1002"
+    },
+    {
+        "courseNum": 1072,
+        "courseNameZh": "程式設計實作",
+        "courseNameEn": "Computer Programming Practice",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1072"
+    },
+    {
+        "courseNum": 1015,
+        "courseNameZh": "離散數學",
+        "courseNameEn": "Discrete Mathematics",
+        "courseTerm": "大一下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1015"
+    },
+    {
+        "courseNum": 1013,
+        "courseNameZh": "資料結構",
+        "courseNameEn": "Data Structures",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1013"
+    },
+    {
+        "courseNum": 1007,
+        "courseNameZh": "線性代數",
+        "courseNameEn": "Linear Algebra",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1007"
+    },
+    {
+        "courseNum": 1088,
+        "courseNameZh": "認知科學",
+        "courseNameEn": "Cognitive Sciences",
+        "courseTerm": "大二上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1088"
+    },
+    {
+        "courseNum": 1023,
+        "courseNameZh": "機率與統計",
+        "courseNameEn": "Probability and Statistics",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1023"
+    },
+    {
+        "courseNum": 1016,
+        "courseNameZh": "系統分析與設計",
+        "courseNameEn": "Systems Analysis and Design",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1016"
+    },
+    {
+        "courseNum": 1040,
+        "courseNameZh": "學習理論",
+        "courseNameEn": "Learning Theories",
+        "courseTerm": "大二下",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1040"
+    },
+    {
+        "courseNum": 1034,
+        "courseNameZh": "演算法",
+        "courseNameEn": "Algorithms",
+        "courseTerm": "大三上",
+        "courseClass": "主修",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1034"
+    },
+    {
+        "courseNum": 1041,
+        "courseNameZh": "資料庫系統",
+        "courseNameEn": "Database Systems",
+        "courseTerm": "大三上",
+        "courseClass": "系統組",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1041"
+    },
+    {
+        "courseNum": 1047,
+        "courseNameZh": "管理資訊系統",
+        "courseNameEn": "Management Information System",
+        "courseTerm": "大三上",
+        "courseClass": "系統組",
+        "courseMajor": "選修",
+        "courseUrl": "./coursePage.html?courseNum=1047"
+    },
+    {
+        "courseNum": 1030,
+        "courseNameZh": "電腦圖學",
+        "courseNameEn": "Computer Graphics",
+        "courseTerm": "大二下",
+        "courseClass": "內容組",
+        "courseMajor": "必修",
+        "courseUrl": "./coursePage.html?courseNum=1030"
+    },
+    {
+        "courseNum": 1027,
+        "courseNameZh": "資訊倫理與法律",
+        "courseNameEn": "Information Morality and Laws",
+        "courseTerm": "大二上",
+        "courseClass": "內容組",
+        "courseMajor": "選修",
+        "courseUrl": "./coursePage.html?courseNum=1027"
+    }
+]
                 let url = location.href;
                 let get = "";
                 if (url.includes('?')){

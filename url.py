@@ -154,15 +154,6 @@ obj = [
         "courseClass": "內容組",
         "courseMajor": "選修",
         "courseUrl": "./coursePage.html?courseNum=1027"
-    },
-    {
-        "courseNum": 1026,
-        "courseNameZh": "網路系統實務與管理",
-        "courseNameEn": "Network Systems Practice and Management",
-        "courseTerm": "大三下",
-        "courseClass": "主修",
-        "courseMajor": "必修",
-        "courseUrl": "./coursePage.html?courseNum=1026"
     }
 ]
 # for i in obj:
