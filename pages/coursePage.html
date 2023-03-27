@@ -35,7 +35,8 @@
                         <tr>
                             <td>{{ items.fileYear }}</td>
                             <td>
-                                <a v-for="(item, index) in items.fileMiddleUrl" :href=item target="_blank">{{ index + 1 }}</a>
+                                <a v-for="(item, index) in items.fileMiddleUrl" :href=item
+                                    target="_blank">{{ index + 1 }}</a>
                             </td>
                         </tr>
                     </tbody>
@@ -52,7 +53,8 @@
                         <tr>
                             <td>{{ items.fileYear }}</td>
                             <td>
-                                <a v-for="(item, index) in items.fileFinalUrl" :href=item target="_blank">{{ index + 1 }}</a>
+                                <a v-for="(item, index) in items.fileFinalUrl" :href=item
+                                    target="_blank">{{ index + 1 }}</a>
                             </td>
                         </tr>
                     </tbody>
@@ -105,7 +107,7 @@
 }, {
     "courseNum": "1007",
     "courseNameZh": "線性代數",
-    "courseMiddleExam": ["108_01.jpg", "108_02.jpg", "108_03.jpg", "108_04.jpg", "108_05.jpg", "108_06.jpg", "108_07.jpg", "108_08.jpg", "108_09.jpg", "108_10.jpg"],
+    "courseMiddleExam": [],
     "courseFinalExam": ["106.pdf"]
 }, {
     "courseNum": "1008",
@@ -180,7 +182,7 @@
 }, {
     "courseNum": "1088",
     "courseNameZh": "認知科學",
-    "courseMiddleExam": ["104_1.pdf", "104_2.pdf", "105_1.pdf", "105_2.pdf"],
+    "courseMiddleExam": ["104_1.pdf", "104_2.pdf", "105_1.pdf", "105_2.pdf", "108.pdf"],
     "courseFinalExam": []
 }]
                 let url = location.href;
