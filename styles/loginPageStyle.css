@@ -38,7 +38,7 @@ a {
 }
 
 /* middle */
-.middle{
+.middle {
     min-height: 70vh;
     padding: 24px;
     display: flex;
@@ -47,7 +47,8 @@ a {
     background-image: url('../images/blur.jpg');
     background-size: cover;
 }
-.login{
+
+.login {
     width: 360px;
     height: fit-content;
     display: flex;
@@ -58,39 +59,50 @@ a {
     border-radius: 4px;
     box-shadow: 3px 3px 10px 1px rgb(121, 121, 121);
 }
-.login > *{
+
+.login>* {
     margin: 12px;
 }
-input[type="email"], input[type="password"]{
+
+input[type="email"],
+input[type="password"] {
     padding: 6px 12px;
     width: 220px;
     border: 1px solid #777;
     border-radius: 3px;
 }
-input:focus{
+
+input:focus {
     outline: none;
 }
-.login a{
+
+.login p {
     font-size: 14px;
     margin: 0;
     color: #233862;
+    color: #9e2a2b;
+    cursor: default;
 }
-.login hr{
+
+.login hr {
     width: 220px;
     margin: 4px;
     color: #233862;
 }
-.login button{
+
+.login button {
     color: white;
     padding: 6px;
     background-color: #233862;
     border: 1px solid #233862;
     border-radius: 4px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-.login button{
+
+.login button {
     width: 220px;
 }
+
 /* bottom-bar */
 .bottom-bar {
     width: 100%;
