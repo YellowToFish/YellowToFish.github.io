@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>IoTeaching</title>
+
+
+</head>
+
+<body>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="../index.html" class="nav-link px-2 text-white">首頁</a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html" class="nav-link px-2 text-white">顯示面板</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-2 text-white">關於我們</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-2 text-white">教材資源</a>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <a href="#" class="btn btn-outline-light me-2">使用教學</a>
+                    <a href="./database.html" class="btn btn-warning">綁定資料庫</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container" style="min-height: 80vh;">
+        <main>
+            <div class="py-5 text-center">
+                <h2>綁定資料庫</h2>
+                <p class="lead">輸入資料庫金鑰後點擊保存，再至顯示面板頁面刷新即可查看該資料庫中資訊。</p>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-lg-4 order-md-last mb-5">
+                    <div class="col-md-12 col-lg-12">
+                        <h4 class="mb-3">現在使用的資料庫設定</h4>
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="apiKeyShow" class="form-label">API Key</label>
+                                <input type="text" class="form-control" id="apiKeyShow" autocomplete="off" disabled readonly>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="sheetIDShow" class="form-label">Google Sheet ID</label>
+                                <input type="text" class="form-control" id="sheetIDShow" autocomplete="off" disabled readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <div class="col-md-12 col-lg-12">
+                        <h4 class="mb-3">輸入一組新的資料庫設定</h4>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="apiKey" class="form-label">API Key</label>
+                                <input type="text" class="form-control" id="apiKey">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="sheetID" class="form-label">Google Sheet ID</label>
+                                <input type="text" class="form-control" id="sheetID">
+                            </div>
+                        </div>
+                        <p class="mt-2 mb-1">* 此數據僅保存於瀏覽器本地緩存</p>
+                        <p>* 請勿輸入空白字串</p>
+                        <hr class="mb-4">
+                        <button class="w-100 btn btn-primary btn-lg" id="newSettingsBtn">儲存設定</button>
+                        <div class="alert alert-danger my-3" role="alert" style="display: none;" id="alertDanger">
+                            請勿輸入空白字串！
+                        </div>
+                        <div class="alert alert-success my-3" role="alert" style="display: none;" id="alertSucc">
+                            成功儲存新設定！
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-muted">Copyright © 2023 YellowToFish</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="nav-item">
+                    <a href="https://www.bestdreamdigital.com/" class="nav-link px-2 text-muted"
+                        target="_blank">B·Digital</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/YellowToFish" class="nav-link px-2 text-muted"
+                        target="_blank">Github</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../main.js"></script>
+</body>
+
+</html>

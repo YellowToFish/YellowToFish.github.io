@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <title>IoTeaching</title>
+</head>
+
+<body>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="../index.html" class="nav-link px-2 text-white">首頁</a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html" class="nav-link px-2 text-white">顯示面板</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-2 text-white">關於我們</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-2 text-white">教材資源</a>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <a href="#" class="btn btn-outline-light me-2">使用教學</a>
+                    <a href="./database.html" class="btn btn-warning">綁定資料庫</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>超音波測距</h2>
+            <p class="lead">顯示超音波測距偵測之距離，依日期分類，僅顯示最近一日之數據。</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center mb-5">
+                <h4>資料日期與筆數</h4>
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">2022 年 12 月 18 日</div>
+                        </div>
+                        <span class="badge bg-danger rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">2022 年 12 月 17 日</div>
+                        </div>
+                        <span class="badge bg-danger rounded-pill">5</span>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-md-8 overflow-auto">
+                <canvas id="echoChart" width="750px" height="450px"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <hr class="mb-4">
+    </div> -->
+    <!-- <div class="container">
+        <div class="py-5 text-center">
+            <h2>顏色偵測</h2>
+            <p class="lead">顯示超音波測距偵測之距離，依日期分類，僅顯示最近一日之數據。</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center mb-5">
+                <h4>資料日期與筆數</h4>
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">2022 年 12 月 18 日</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">2022 年 12 月 17 日</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">2</span>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-md-8 overflow-auto">
+                <canvas id="cameraChart" width="750px" height="450px"></canvas>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-muted">Copyright © 2023 YellowToFish</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="nav-item">
+                    <a href="https://www.bestdreamdigital.com/" class="nav-link px-2 text-muted"
+                        target="_blank">B·Digital</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/YellowToFish" class="nav-link px-2 text-muted"
+                        target="_blank">Github</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+    <script>
+        var echoData = [];
+        async function getData() {
+
+            var sheetId = JSON.parse(localStorage.getItem('userSettings'))[1] || [];
+            var apiKey = JSON.parse(localStorage.getItem('userSettings'))[0] || [];
+            if (sheetId != [] && apiKey != []) {
+                var url = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/Echo?key=' + apiKey;
+                console.log(url);
+                $.getJSON(url, function (json) {
+                    var values = json.values;
+                    console.log(values.length);
+                    console.log(values[values.length - 1]);
+
+                    for (let i = 1; i < values.length; i++) {
+                        let year = values[i][1];
+                        let month = values[i][2];
+                        let day = values[i][3];
+                        let hour = values[i][4];
+                        let minute = values[i][5];
+                        let sec = values[i][6];
+                        if (month.length == 1) {
+                            month = '0' + month;
+                        }
+                        if (day.length == 1) {
+                            day = '0' + day;
+                        }
+                        if (hour.length == 1) {
+                            hour = '0' + hour;
+                        }
+                        if (minute.length == 1) {
+                            minute = '0' + minute;
+                        }
+                        if (sec.length == 1) {
+                            sec = '0' + sec;
+                        }
+                        let time = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + sec;
+                        var obj = new Object();
+                        obj.x = time;
+                        obj.y = parseInt(values[i][7]);
+                        echoData.push(obj);
+                        console.log(echoData);
+                    }
+                })
+            }
+        }
+
+
+        const data = {
+            datasets: [{
+                label: '超音波測距',
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(255, 99, 132, 0.5)',
+
+                // data: [{
+                //     x: "2022-12-18 17:09",
+                //     y: 3
+                // }, {
+                //     x: "2022-12-18 17:14",
+                //     y: 10
+                // }, {
+                //     x: "2022-12-18 17:53",
+                //     y: 5
+                // }, {
+                //     x: "2022-12-18 17:56",
+                //     y: 2
+                // }, {
+                //     x: "2022-12-18 18:15",
+                //     y: 20
+                // }, {
+                //     x: "2022-12-18 18:18",
+                //     y: 30
+                // }, {
+                //     x: "2022-12-18 19:09",
+                //     y: 45
+                // }],
+                data: echoData,
+            }]
+        };
+
+        const cameraData = {
+            datasets: [{
+                label: '顏色偵測',
+                borderColor: 'rgb(13, 110, 253)',
+                backgroundColor: 'rgb(13, 110, 253, 0.5)',
+                data: [{
+                        x: "2022-12-18 17:10",
+                        y: "紅色"
+                    },
+                    {
+                        x: "2022-12-18 17:18",
+                        y: "黃色"
+                    },
+                    {
+                        x: "2022-12-18 18:18",
+                        y: "綠色"
+                    },
+                    {
+                        x: "2022-12-18 18:50",
+                        y: "紅色"
+                    },
+                    {
+                        x: "2022-12-18 19:18",
+                        y: "綠色"
+                    }
+                ],
+            }]
+        }
+
+        const echoConfig = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                    }
+                }
+            },
+        };
+
+        const cameraConfig = {
+            type: 'line',
+            data: cameraData,
+            options: {
+                responsive: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                    },
+                    y: {
+                        type: 'category',
+                        labels: ['紅色', '黃色', '綠色'],
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            window.setTimeout(function () {
+                const echoChart = new Chart(
+                    document.getElementById('echoChart'),
+                    echoConfig
+                );
+                // const cameraChart = new Chart(
+                //     document.getElementById('cameraChart'),
+                //     cameraConfig
+                // )
+            }, 1000);
+
+        }
+
+        getData();
+        draw();
+    </script>
+</body>
+
+</html>
