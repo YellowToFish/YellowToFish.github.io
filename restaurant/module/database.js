@@ -37,7 +37,7 @@ function SelectData(time) {
 }
 
 function InsertData() {
-    if (result == []) {
+    if (result.length == 0) {
         return
     }
     const time = Date.now();
